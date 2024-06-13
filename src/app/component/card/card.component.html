@@ -1,0 +1,7 @@
+<mat-card class="card" (click)="navigateToDetail()" style="border: 2px solid black; width: 200px;" >
+    <mat-card-content>
+      <h2>{{ drink.strDrink }}</h2>
+      <p>{{ drink.idDrink }}</p>
+    </mat-card-content>
+    <img mat-card-image [src]="drink.strDrinkThumb" alt="Imagen de la bebida" style="width: 100px; height: auto;">
+</mat-card>

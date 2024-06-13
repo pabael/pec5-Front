@@ -1,0 +1,18 @@
+<table mat-table [dataSource]="drinks" class="mat-elevation-z8">
+    <ng-container matColumnDef="strDrink">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let drink" (click)="navigateToDetail(drink.idDrink)">
+        {{ drink.strDrink }}
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="idDrink">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let drink" (click)="navigateToDetail(drink.idDrink)">
+        {{ drink.idDrink }}
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="['strDrink', 'idDrink']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['strDrink', 'idDrink'];"></tr>
+</table>

@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>List</h1>
+  
+    <div class="buttons">
+        <button mat-raised-button color="primary" (click)="toggleView('cards')" [color]="viewMode === 'cards' ? 'accent' : 'primary'">
+            Cards
+        </button>
+        <button mat-raised-button color="primary" (click)="toggleView('table')" [color]="viewMode === 'table' ? 'accent' : 'primary'">
+            Table
+        </button>
+    </div>
+  
+    <mat-spinner *ngIf="loading" diameter="50" class="spinner"></mat-spinner>
+  
+    <div *ngIf="!loading" [@fadeIn]>
+        <div *ngIf="viewMode === 'cards'">
+            <mat-grid-list cols="3" rowHeight="3:2" gutterSize="20px">
+                <mat-grid-tile *ngFor="let drink of list">
+                <app-card [drink]="drink"></app-card>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+      
+        <div *ngIf="viewMode === 'table'">
+            <app-grid [drinks]="list"></app-grid>
+        </div>
+    </div>
+  </div>
